@@ -21,8 +21,12 @@
     
     <div class="row" style="margin-top:20px">
         <div class="col-xs-12">
-            <button type="button" class="btn btn-success" (click)="onLoveIt()">Love it!</button>
-            <button type="button" class="btn btn-danger"  (click)="onDislikeIt()">Don't love it!</button>
+            <button type="button" class="btn btn-success" (click)="onLoveIt()">
+                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> ({{likeIt}})
+            </button>
+            <button type="button" class="btn btn-danger"  (click)="onDislikeIt()">
+                <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> ({{dontLikeIt}})
+            </button>
         </div>
    </div>
 </li>

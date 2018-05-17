@@ -9,18 +9,28 @@ import { Post } from '../post';
 export class PostListItemComponent implements OnInit {
 
   @Input() post: Post;
+  public likeIt : number = 0;
+  public dontLikeIt : number = 0;
 
   constructor() { }
 
   ngOnInit() {
+    if(this.post.loveIts>0){
+      this.likeIt = this.post.loveIts;
+    }
+    if(this.post.loveIts<0){
+      this.dontLikeIt = Math.abs(this.post.loveIts);
+    }
   }
 
   onLoveIt() {
-    this.post.loveIts = this.post.loveIts + 1;
+    this.likeIt++;
+    this.post.loveIts = this.likeIt - this.dontLikeIt;
   }
 
   onDislikeIt() {
-    this.post.loveIts = this.post.loveIts - 1;
+    this.dontLikeIt++;
+    this.post.loveIts = this.likeIt - this.dontLikeIt;
   }
 
 }
